@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet">
+    <style>
+        .login {
+            background-image: url('C:/task/bg.jpg');
+            background-size: cover;
+        }
+        .login-container {
+            background-color: rgba(0, 128, 128, 0.3); /* Aqua light color with opacity */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px ;
+            margin-right: 350px;
+            
+            
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+    </style>
 </head>
 <body class="login">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,73 +29,74 @@
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarsupportedcontent"
             aria-expanded="false" 
-            aria-lable="Toggle Navigation">
-        <span class="navbar-toggler-icon">
-
-        </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                <li clss="nav-item">
-                    <a href="employee-list.html" target="blank" class="nav-link" aria-current="page">Employees</a>
-                </li>
-                <li clss="nav-item">
-                    <a href="dashboard.html" target="blank" class="nav-link">dashboard</a>
-                </li>
-                <li clss="nav-item">
-                    <a href="events.html" target="blank" class="nav-link">Events
-                </a>
-                </li>
-                <li clss="nav-item">
-                    <a href="#" class="nav-link">Logout</a>
-                </li>
-
-            </ul>
-
+            aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="employee-list.html" target="blank" class="nav-link" aria-current="page">Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dashboard.html" target="blank" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="events.html" target="blank" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        </div>
-
     </nav>
     <!-- Login Form -->
     <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class=" col-mg-4 "></div>
-            <div class="card bx_sd">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h4>Login as Employee / Admin</h4>
-                        <p class="card-text small text-muted">
-                            Login with your username and password.
-                        </p>
-                        <!-- Input Form -->
-                        <form>
-                            <div class="mb-3">
-                        <input type="text"
-                         class="form-control form-control-sm"
-                         placeholder="ex., username" required/>
+        <div class="row justify-content-center">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 login-container">
+                <div class="card bx_sd">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4>Login as Employee / Admin</h4>
+                            <p class="card-text small text-muted">
+                                Login with your username and password.
+                            </p>
+                            <!-- Input Form -->
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <input type="text" id="username" class="form-control form-control-sm" placeholder="ex., username" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" id="password" class="form-control form-control-sm" placeholder="ex., password" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" class="btn btn-block btn-sm btn-success" value="Sign In"/>
+                                </div>
+                            </form>
+                            <a href="employee-list.html" target="blank" class="text-dark">Employee-List</a>
                         </div>
-                        <div class="mb-3">
-                            <input type="password"
-                             class="form-control form-control-sm"
-                             placeholder="ex., password" required/>
-                            </div>
-                            <div class="mb-3">
-                                <input type="submit" class="btn btn-block btn-sm btn-success"
-                                value="Sign In"
-                                />
-                            </div>
-                    </form>
-                    <a href="employee-list.html" target="blank" class="text-dark">
-                        Employee-List</a>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Perform login validation (for demonstration purposes)
+            if (username === "admin" && password === "admin123") {
+                alert("Login Successful!"); // Replace with actual login logic
+            } else {
+                alert("Invalid username or password."); // Replace with actual error handling
+            }
+        });
+    </script>
 </body>
 </html>
